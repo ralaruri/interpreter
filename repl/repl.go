@@ -1,31 +1,31 @@
 package repl
 
 import (
-  "bufio"
-  "fmt"
-  "io"
-  "github.com/ralaruri/interpreter/lexer"
-  "github.com/ralaruri/interpreter/token"
+	"bufio"
+	"fmt"
+	"github.com/ralaruri/interpreter/lexer"
+	"github.com/ralaruri/interpreter/token"
+	"io"
 )
 
 const PROMPT = ">> "
 
-func Start(in io.Reader, out io.Writer){
-  scanner := bufio.NewScanner(in)
+func Start(in io.Reader, out io.Writer) {
+	scanner := bufio.NewScanner(in)
 
-  for {
-    fmt.Fprintf(out, PROMPT)
-    scanned := scanner.Scan()
+	for {
+		fmt.Fprintf(out, PROMPT)
+		scanned := scanner.Scan()
 
-    if !scanned {
-      return 
-    }
+		if !scanned {
+			return
+		}
 
-    line := scanner.Text()
-    l := lexer.New(line)
+		line := scanner.Text()
+		l := lexer.New(line)
 
-    for tok := l.NextToken(); tok.Type != token.EOF; tok = l.NextToken() {
-      fmt.Fprintf(out, "%+v\n", tok)
-    }
-  }
+		for tok := l.NextToken(); tok.Type != token.EOF; tok = l.NextToken() {
+			fmt.Fprintf(out, "%+v\n", tok)
+		}
+	}
 }
