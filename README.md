@@ -25,3 +25,30 @@ Working through the https://interpreterbook.com/
 ### Ch 1.4 Extending our Token Set and Lexer
 
 ### Ch 1.5 Start of a REPL
+
+
+## Chapter 2 Parsing
+
+### Ch 2.1 Parsers
+- Parsers take in input data (text) and create a data strucutre like a abstract syntax tree.
+
+Javascript Example:
+
+```
+“> var input = '{"name": "Thorsten", "age": 28}';
+> var output = JSON.parse(input);
+> output
+{ name: 'Thorsten', age: 28 }
+> output.name
+'Thorsten'
+> output.age
+28
+>
+Our”
+
+Excerpt From
+Writing An Interpreter In Go
+Thorsten Ball
+https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewBook?id=0
+This material may be protected by copyright.
+```
